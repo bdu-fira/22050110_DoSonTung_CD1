@@ -1,0 +1,292 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin",
+      "name": "Admin User"
+    },
+    {
+      "id": "2",
+      "email": "employee@example.com",
+      "password": "emp123",
+      "role": "employee",
+      "name": "Employee User"
+    },
+    {
+      "id": "3",
+      "email": "user@example.com",
+      "password": "user123",
+      "role": "user",
+      "name": "Regular User"
+    },
+    {
+      "id": "c0yh",
+      "name": "Tùng",
+      "email": "dtung@gmail.com",
+      "password": "123",
+      "role": "employee"
+    },
+    {
+      "id": "fcce",
+      "name": "ABC",
+      "email": "123@gmail.com",
+      "password": "123",
+      "role": "user"
+    },
+    {
+      "id": "4b22",
+      "name": "Tinh",
+      "email": "kazuto.xvx@gmail.com",
+      "password": "123",
+      "role": "user"
+    }
+  ],
+  "carts": [],
+  "books": [
+    {
+      "id": "f97b",
+      "title": "Harry Potter",
+      "author": "J. K. Rowling",
+      "price": 200000,
+      "description": "Harry Potter là một cậu bé phù thủy mồ côi, phát hiện ra thân phận thật tại trường Hogwarts. Cùng bạn bè Ron và Hermione, Harry trải qua nhiều cuộc phiêu lưu và dần đối đầu với chúa tể hắc ám Voldemort, kẻ đã sát hại cha mẹ cậu. Sau nhiều thử thách, tình bạn, sự hy sinh và lòng dũng cảm giúp Harry đánh bại Voldemort và mang lại hòa bình cho thế giới phù thủy.",
+      "coverImage": "",
+      "quantity": 100,
+      "genre": "Fantasy",
+      "publisher": "Bloomsbury",
+      "language": "English"
+    },
+    {
+      "id": "cf23",
+      "title": "Jane Eyre ",
+      "author": "Charlotte Bronte",
+      "price": 170000,
+      "description": "Nội dung tiểu thuyết kể về một cô gái nghèo tỉnh lẻ nhưng đã không cam chịu số phận. Cô gái kiên cường vượt qua mọi định kiến để bảo vệ phẩm giá và khẳng định vị trí trong xã hội bằng cách sống lương thiện và lao động chăm chỉ.",
+      "coverImage": "",
+      "quantity": 100,
+      "genre": "Romance",
+      "publisher": "Smith, Elder & Co.",
+      "language": "English"
+    },
+    {
+      "id": "41a8",
+      "title": "The Lord of the Rings",
+      "author": "J. R. R. Tolkien",
+      "price": 250000,
+      "description": "Nội dung kể về một chiếc nhẫn tưởng đã bị thất lạc qua nhiều thế kỷ bỗng dưng được tìm thấy và bước ngoặt định mệnh kỳ lạ của người Hobbit nhỏ bé tên Frodo. Khi Gandalf phát hiện chiếc nhẫn là của Chúa tể bóng tối Sauron, Frodo phải thực hiện một nhiệm vụ quan trọng đến Cracks of Doom để phá hủy mọi âm mưu đen tối.",
+      "coverImage": "",
+      "quantity": 99,
+      "genre": "Fantasy",
+      "publisher": "Allen & Unwin",
+      "language": "English"
+    },
+    {
+      "id": "43a7",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "price": 300000,
+      "description": "Kiêu hãnh và định kiến là một trong số tác phẩm văn học kinh điển đã được chuyển thể thành phim, do nữ nhà văn Jane Austen sáng tác. Tác phẩm này khi được chuyển thể thành phim cũng thành công không kém bản gốc với nhiều đánh giá tích cực. Đọc tác phẩm này, bạn sẽ theo dõi câu chuyện của 5 chị em trong một gia đình tiểu quý tộc tại Anh.",
+      "coverImage": "",
+      "quantity": 10,
+      "genre": "Romance",
+      "publisher": "T. Egerton, Whitehall",
+      "language": "English"
+    },
+    {
+      "id": "3000",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "price": 260000,
+      "description": "To Kill a Mockingbird kể qua góc nhìn của cô bé Scout Finch sống ở miền Nam nước Mỹ. Cha cô – Atticus Finch, một luật sư chính trực – bào chữa cho một người da đen tên Tom Robinson bị vu oan hiếp dâm một phụ nữ da trắng. Dù Atticus làm rõ sự thật, Tom vẫn bị kết án do định kiến chủng tộc. Truyện phản ánh nạn phân biệt chủng tộc, lòng dũng cảm và sự trưởng thành.",
+      "coverImage": "",
+      "quantity": 30,
+      "genre": "Bildungsroman",
+      "publisher": "HarperCollins",
+      "language": "English"
+    },
+    {
+      "id": "44ab",
+      "title": "Dracula",
+      "author": "Bram Stoker",
+      "price": 245000,
+      "description": " Câu chuyện bắt đầu khi Jonathan Harker, một cố vấn pháp luật người Anh, đi tàu và xe ngựa từ Anh đến toà lâu đài cũ nát và hẻo lánh của Bá tước Dracula (nằm trên núi Carpathian, tại biên giới giữa Transilvania và Moldavia). Mục đích chuyến đi của anh ta là để tư vấn về pháp luật cho Dracula trong giao dịch bất động sản với giám đốc của anh, ông Peter Hawkin, ở Exeter, Anh. Ban đầu Harker bị Dracula dụ dỗ bằng cách cư xử lịch thiệp, sau đó, anh sớm phát hiện ra rằng chính mình đang bị cầm tù trong lâu đài. Anh ta cũng bắt đầu thấy những khía cạnh bất ổn trong cuộc sống của Dracula về đêm. Một đêm, trong khi đang tìm lối thoát ra khỏi lâu đài, Harker rơi vào tay của 3 nữ ma cà rồng - những người sống cùng Dracula, và bị quyến rũ. Cuối cùng, anh ta được Bá tước cứu, tuy nhiên, việc này chỉ nhằm giữ cho Harker sống để giúp đỡ ông ta trong vấn đề luật pháp, giúp ông ta tìm hiểu về nước Anh và London. Harker đã rất khó khăn để sống sót thoát khỏi lâu đài.",
+      "coverImage": "",
+      "quantity": 25,
+      "genre": "Horror",
+      "publisher": "Archibald Constable and Company (UK)",
+      "language": "English"
+    },
+    {
+      "id": "5730",
+      "title": "The Little Prince",
+      "author": "Antoine de Saint-Exupéry",
+      "price": 250000,
+      "description": "Người kể chuyện – một phi công – bị rơi máy bay giữa sa mạc Sahara và gặp một cậu bé kỳ lạ gọi là hoàng tử bé. Cậu đến từ một hành tinh nhỏ tên B-612, nơi cậu sống cùng ba ngọn núi lửa và một bông hoa hồng kiêu kỳ mà cậu rất yêu quý.\n\nTrên hành trình khám phá vũ trụ, cậu gặp nhiều người lớn kỳ quặc, tượng trưng cho sự vô lý và hẹp hòi của thế giới người lớn. Khi đến Trái Đất, hoàng tử gặp một con cáo, học được bài học rằng: \"Điều quan trọng chỉ có thể nhìn thấy bằng trái tim.\"\n\nCuối cùng, hoàng tử để con rắn cắn mình để trở về hành tinh, bỏ lại người kể chuyện với nỗi nhớ và những vì sao luôn mỉm cười từ bầu trời đêm.",
+      "coverImage": "",
+      "quantity": 30,
+      "genre": "Science fantasy",
+      "publisher": "Reynal & Hitchcock (U.S.) Gallimard (France)",
+      "language": "English"
+    },
+    {
+      "id": "2e00",
+      "title": "His Dark Materials",
+      "author": "Philip Pullman",
+      "price": 230000,
+      "description": "His Dark Materials kể về hành trình phiêu lưu xuyên các thế giới song song của cô bé Lyra Belacqua và cậu bé Will Parry.\n\nỞ thế giới của Lyra, linh hồn con người tồn tại bên ngoài cơ thể dưới hình dạng động vật gọi là daemons. Lyra phát hiện một tổ chức bắt cóc trẻ em để làm thí nghiệm tách họ khỏi daemon, và cô quyết định giải cứu bạn mình – Roger.\n\nTrong phần hai, Lyra gặp Will – một cậu bé đến từ thế giới của chúng ta. Cậu sở hữu Chiếc Dao Sắc có thể cắt rạch lỗ hổng giữa các thế giới. Hai người cùng nhau khám phá bí ẩn về Dust – một hạt vật chất liên quan đến ý thức và trí tuệ – thứ mà giới cầm quyền muốn tiêu diệt.\n\nHọ dần nhận ra cuộc chiến đang diễn ra giữa quyền lực áp bức của The Authority (Thẩm Quyền) – một vị thần giả mạo thống trị các thế giới – và những người đấu tranh cho tự do tư tưởng. Lyra được tiên đoán là \"Eva mới\", người có thể mang đến một kỷ nguyên mới.\n\nTrong phần cuối, sau nhiều mất mát, họ giúp kết thúc sự thống trị của The Authority và giúp Dust ngừng biến mất, giữ lại ý thức cho vũ trụ. Tuy nhiên, để bảo vệ các thế giới, họ phải chia tay và sống ở thế giới riêng của mình – dù rất đau lòng.",
+      "coverImage": "",
+      "quantity": 15,
+      "genre": "Fantasy",
+      "publisher": "Scholastic",
+      "language": "English"
+    },
+    {
+      "id": "c59f",
+      "title": "The Lion, The Witch and the Wardrobe",
+      "author": "C.S. Lewis",
+      "price": 200000,
+      "description": "Bốn anh em Peter, Susan, Edmund và Lucy được sơ tán khỏi London trong Thế chiến II. Trong ngôi nhà nông thôn, Lucy phát hiện một cái tủ áo thần kỳ dẫn đến vương quốc Narnia, nơi bị Phù thủy Trắng cai trị trong mùa đông vĩnh cửu.\n\nCác anh chị em cùng sư tử Aslan, biểu tượng của cái thiện và hy sinh, chiến đấu để giải phóng Narnia khỏi ách thống trị. Edmund, ban đầu bị dụ dỗ, được chuộc lỗi nhờ sự hy sinh của Aslan. Cuối cùng, cả bốn người trở thành vua và nữ hoàng của Narnia.",
+      "coverImage": "",
+      "quantity": 24,
+      "genre": "Fantasy",
+      "publisher": "Geoffrey Bles",
+      "language": "English "
+    },
+    {
+      "id": "dbb1",
+      "title": "Captain Corelli's Mandolin",
+      "author": "Louis De Bernieres",
+      "price": 210000,
+      "description": "Lấy bối cảnh Thế chiến II trên đảo Cephalonia (Hy Lạp), truyện xoay quanh Pelagia, con gái của bác sĩ trưởng đảo, và đại úy Corelli, một sĩ quan Ý yêu âm nhạc được điều đến đảo trong thời gian chiếm đóng.\n\nBan đầu Pelagia khinh thường Corelli, nhưng dần dần hai người nảy sinh tình cảm. Tuy nhiên, chiến tranh tàn khốc khiến tình yêu của họ bị thử thách, đặc biệt sau khi nước Đức phản bội Ý và gây ra thảm sát lính Ý, trong đó có Corelli suýt bị giết.\n\nCuốn tiểu thuyết khai thác tình yêu, sự mất mát và lòng nhân đạo trong thời chiến, đồng thời là một bản tình ca dành cho âm nhạc, lòng dũng cảm và Hy Lạp.",
+      "coverImage": "",
+      "quantity": 20,
+      "genre": "Historical",
+      "publisher": "Secker & Warburg",
+      "language": "English"
+    },
+    {
+      "id": "06f8",
+      "title": " The Da Vinci Code ",
+      "author": "Dan Brown",
+      "price": 270000,
+      "description": "Robert Langdon, một giáo sư biểu tượng học, bị cuốn vào một vụ án mạng tại Bảo tàng Louvre. Cùng với Sophie Neveu, cháu gái của nạn nhân, họ khám phá ra những mật mã ẩn trong các tác phẩm của Leonardo da Vinci dẫn đến bí mật gây tranh cãi về Chén Thánh – vốn được cho là huyết thống của Chúa Jesus và Mary Magdalene.\n\nHọ bị truy đuổi bởi một giáo phái cực đoan muốn bảo vệ hoặc tiêu diệt sự thật này. Cuộc truy tìm đưa họ qua Pháp, Anh, giải mã hàng loạt bí ẩn lịch sử – đồng thời đặt ra câu hỏi về niềm tin, sự thật và sức mạnh của tôn giáo.",
+      "coverImage": "",
+      "genre": "Detective Fiction",
+      "publisher": "Doubleday (US)",
+      "language": "English"
+    }
+  ],
+  "employees": [
+    {
+      "id": "2",
+      "name": "Employee User",
+      "email": "employee@example.com",
+      "password": "emp123",
+      "role": "employee"
+    },
+    {
+      "id": "c0yh",
+      "name": "Tùng",
+      "email": "dtung@gmail.com",
+      "password": "123",
+      "role": "employee"
+    }
+  ],
+  "orders": [
+    {
+      "status": "Confirmed",
+      "id": "0f43"
+    },
+    {
+      "status": "Confirmed",
+      "id": "ace0"
+    },
+    {
+      "status": "Confirmed",
+      "id": "b8fb"
+    },
+    {
+      "status": "Confirmed",
+      "id": "16fd"
+    },
+    {
+      "status": "Confirmed",
+      "id": "2f4c"
+    },
+    {
+      "status": "Confirmed",
+      "id": "dd08"
+    },
+    {
+      "status": "Confirmed",
+      "id": "81ad"
+    },
+    {
+      "status": "Confirmed",
+      "id": "8d11"
+    },
+    {
+      "status": "Confirmed",
+      "id": "bd7c"
+    },
+    {
+      "status": "Confirmed",
+      "id": "a068"
+    },
+    {
+      "id": "c757",
+      "customerId": "4b22",
+      "customerName": "nguyentantinh",
+      "items": [
+        {
+          "id": "41a8",
+          "title": "The Lord of the Rings",
+          "author": "J. R. R. Tolkien",
+          "price": 250000,
+          "description": "Nội dung kể về một chiếc nhẫn tưởng đã bị thất lạc qua nhiều thế kỷ bỗng dưng được tìm thấy và bước ngoặt định mệnh kỳ lạ của người Hobbit nhỏ bé tên Frodo. Khi Gandalf phát hiện chiếc nhẫn là của Chúa tể bóng tối Sauron, Frodo phải thực hiện một nhiệm vụ quan trọng đến Cracks of Doom để phá hủy mọi âm mưu đen tối.",
+          "coverImage": "",
+          "quantity": 1,
+          "genre": "Fantasy",
+          "publisher": "Allen & Unwin",
+          "language": "English"
+        }
+      ],
+      "total": 250000,
+      "status": "Đang chờ xác nhận",
+      "shippingInfo": {
+        "address": "binhhoa1,tanphuockhanh,tanuyen,binhduong",
+        "phone": "0948622846",
+        "paymentMethod": "cash",
+        "paymentDate": "2025-04-20"
+      }
+    },
+    {
+      "id": "e8b9",
+      "customerId": "4b22",
+      "customerName": "t",
+      "items": [
+        {
+          "id": "c59f",
+          "title": "The Lion, The Witch and the Wardrobe",
+          "author": "C.S. Lewis",
+          "price": 200000,
+          "description": "Bốn anh em Peter, Susan, Edmund và Lucy được sơ tán khỏi London trong Thế chiến II. Trong ngôi nhà nông thôn, Lucy phát hiện một cái tủ áo thần kỳ dẫn đến vương quốc Narnia, nơi bị Phù thủy Trắng cai trị trong mùa đông vĩnh cửu.\n\nCác anh chị em cùng sư tử Aslan, biểu tượng của cái thiện và hy sinh, chiến đấu để giải phóng Narnia khỏi ách thống trị. Edmund, ban đầu bị dụ dỗ, được chuộc lỗi nhờ sự hy sinh của Aslan. Cuối cùng, cả bốn người trở thành vua và nữ hoàng của Narnia.",
+          "coverImage": "",
+          "quantity": 1,
+          "genre": "Fantasy",
+          "publisher": "Geoffrey Bles",
+          "language": "English "
+        }
+      ],
+      "total": 200000,
+      "status": "Đang chờ xác nhận",
+      "shippingInfo": {
+        "address": "t",
+        "phone": "t",
+        "paymentMethod": "cash",
+        "paymentDate": "2025-04-23"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1455 @@
+/* Reset cơ bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tổng quan ứng dụng */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #2c3e50;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  color: #ecf0f1;
+  text-decoration: none;
+}
+
+.navbar-logo svg {
+  margin-right: 0.5rem;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #3498db;
+}
+
+.logout-btn {
+  background: none;
+  border: 1px solid #ecf0f1;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: #ecf0f1;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #3498db;
+  border-color: #3498db;
+}
+
+/* Home Page */
+.hero-section {
+  text-align: center;
+  padding: 5rem 1rem;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./assets/bg.jpg') no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 500px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  animation: fadeInUp 1s ease-in-out 0.2s;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: fadeInUp 1s ease-in-out 0.4s;
+}
+
+.cta-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* Keyframes cho hiệu ứng */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Search Styles */
+.search-form {
+  margin: 2rem auto;
+  max-width: 600px;
+  padding: 0 1rem;
+  animation: fadeInUp 1s ease-in-out 0.6s;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: all 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.search-button {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: #3498db;
+  transition: color 0.3s;
+}
+
+.search-button:hover {
+  color: #2980b9;
+}
+
+.search-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #f9f9f9;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.feature-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #2980b9);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-item:hover::before {
+  opacity: 1;
+}
+
+.feature-item h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.feature-item p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Books Grid */
+.books-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.book-card {
+  width: 200px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+}
+
+.book-link {
+  text-decoration: none;
+  color: inherit;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.book-card h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.book-card p {
+  margin: 0.3rem 0;
+  color: #666;
+}
+
+.add-to-cart-btn {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #2980b9;
+}
+
+.out-of-stock {
+  color: #e74c3c;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.books-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-bar {
+  flex: 1;
+  max-width: 300px;
+}
+
+.search-bar input {
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.genre-filter {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.genre-filter label {
+  margin-bottom: 0.75rem; /* Tăng khoảng cách để thoáng hơn */
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.genre-filter select {
+  padding: 0.6rem;
+  width: 200px;
+  border-radius: 8px; /* Bo góc mềm mại hơn */
+  border: 1px solid #ccc;
+  background: white;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.genre-filter select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.genre-filter select:hover {
+  border-color: #3498db;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem; /* Slightly increased gap for better spacing */
+  margin-top: 2.5rem; /* Added more margin for breathing room */
+  padding: 0.5rem;
+}
+
+.pagination-btn {
+  padding: 0.6rem 1.2rem; /* Slightly larger padding for a more clickable area */
+  border: none;
+  border-radius: 8px; /* Softer, more modern rounded corners */
+  background-color: #2c3e50; /* Darker background for better contrast */
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500; /* Slightly bolder text for readability */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Added transform and shadow transitions */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: #3498db; /* Brighter blue on hover for better feedback */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+.pagination-btn:disabled {
+  background-color: #95a5a6; /* Grayed out for disabled state */
+  cursor: not-allowed;
+  box-shadow: none; /* Remove shadow for disabled buttons */
+}
+
+.pagination-btn.active {
+  background-color: #e74c3c; /* Keep the active state color */
+  font-weight: 600; /* Bolder text for active page */
+  transform: scale(1.05); /* Slightly larger scale for active button */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow for active state */
+}
+
+/* Book Detail */
+.book-detail-page {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.book-detail-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.book-image img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.book-info h1 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.book-details p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.book-details strong {
+  color: #3498db;
+  display: inline-block;
+  width: 100px;
+}
+
+.book-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.back-btn {
+  background-color: #95a5a6;
+  text-decoration: none;
+}
+
+.back-btn:hover {
+  background-color: #7f8c8d;
+}
+
+/* Cart */
+.cart-page {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cart-wrapper {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+.cart-title {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-size: 2rem; /* Slightly larger for emphasis */
+  text-align: center; /* Center the title */
+}
+
+/* Empty Cart Styles */
+.empty-cart {
+  text-align: center; /* Center-align the content */
+  padding: 3rem 1rem; /* More padding for breathing room */
+  background: #f8f9fa; /* Light background to differentiate the section */
+  border-radius: 8px; /* Rounded corners for a softer look */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+}
+
+.empty-cart p {
+  font-size: 1.2rem; /* Larger font size for readability */
+  color: #666; /* Softer color for the message */
+  margin-bottom: 1.5rem; /* More spacing below the message */
+  font-weight: 400; /* Lighter font weight for a friendlier feel */
+}
+
+.cart-items-list {
+  margin-bottom: 2rem;
+}
+
+.cart-item-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cart-item-image {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+
+.cart-item-details h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.author {
+  color: #666;
+  margin: 0.25rem 0 0;
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.remove-item-btn {
+  background: #e74c3c;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-btn {
+  background: #3498db;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.quantity-btn:hover {
+  background: #2980b9;
+}
+
+.cart-summary-card {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  text-align: right;
+}
+
+.summary-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.total-price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.checkout-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #27ae60;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.continue-shopping-link {
+  display: inline-flex; /* Use flex to align icon and text */
+  align-items: center;
+  gap: 0.5rem; /* Space between icon and text */
+  padding: 0.8rem 2rem; /* Larger padding for a more clickable button */
+  background-color: #3498db; /* Vibrant blue background */
+  color: white; /* White text for contrast */
+  text-decoration: none;
+  border-radius: 50px; /* Pill-shaped button for a modern look */
+  font-size: 1.1rem; /* Slightly larger font */
+  font-weight: 500; /* Medium font weight */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin-top: 1rem; /* Thêm khoảng cách phía trên */
+}
+
+.continue-shopping-link:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+/* Add an optional icon for the continue shopping link */
+.continue-shopping-link::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 9-9 9M4 12h16"/></svg>') no-repeat center center;
+  background-size: contain;
+  margin-right: 0.5rem; /* Space between icon and text */
+}
+
+/* Checkout */
+.checkout-page {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.checkout-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.order-summary, .checkout-form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.checkout-form select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.place-order-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  background-color: #27ae60;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Auth Pages */
+.auth-container {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.auth-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-card h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.auth-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #3498db;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+  background-color: #2980b9;
+}
+
+.auth-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #e74c3c;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.success-message {
+  color: #27ae60;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.auth-links {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.auth-link {
+  margin: 0.5rem 0;
+}
+
+.forgot-password-btn, .back-to-login-btn {
+  background: none;
+  border: none;
+  color: #3498db;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.forgot-password-btn:hover, .back-to-login-btn:hover {
+  text-decoration: underline;
+}
+
+/* Profile */
+.profile-page {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+.profile-title {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.profile-info-card {
+  padding: 1.5rem;
+}
+
+.profile-details p {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.edit-btn, .change-password-btn {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #3498db;
+}
+
+.change-password-btn {
+  background-color: #f39c12;
+}
+
+/* Book Manager */
+.book-manager {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.manager-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.manager-header h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.add-book-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #27ae60;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.books-table {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1.5fr;
+  padding: 1rem;
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1.5fr;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.table-header span, .table-row span {
+  padding: 0 0.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.table-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.edit-book-btn, .delete-book-btn {
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.edit-book-btn {
+  background: #3498db;
+}
+
+.delete-book-btn {
+  background: #e74c3c;
+}
+
+/* Book Form */
+.book-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.image-preview {
+  max-width: 200px;
+  margin-top: 1rem;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  background-color: #2ecc71;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cancel-btn {
+  background-color: #95a5a6;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+/* User Manager */
+.user-manager {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+.users-table .table-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.users-table .table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Order Manager */
+.order-manager {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+.orders-table .table-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.orders-table .table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.status-select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 2rem 1rem;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section a {
+  color: #ecf0f1;
+  text-decoration: none;
+}
+
+/* Language Switch */
+.language-switch {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+}
+
+/* Admin Dashboard */
+.admin-dashboard {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-header {
+  margin-bottom: 2rem;
+}
+
+.admin-header h1 {
+  color: #2c3e50;
+}
+
+.admin-header p {
+  color: #666;
+}
+
+/* Employee Manager */
+.employee-manager {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+.add-employee-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: #27ae60;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.employees-table {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+.employees-table .table-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1rem;
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.employees-table .table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1rem;
+}
+
+.employee-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.edit-employee-btn {
+  background: #3498db;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.delete-employee-btn {
+  background: #e74c3c;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Employee Dashboard */
+.employee-dashboard {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.employee-header {
+  margin-bottom: 2rem;
+}
+
+.employee-header h1 {
+  color: #2c3e50;
+}
+
+.employee-header p {
+  color: #666;
+}
+
+.employee-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
+  padding: 0.8rem 1.5rem;
+  background-color: #ecf0f1;
+  border: none;
+  border-radius: 5px;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tab-btn.active {
+  background-color: #3498db;
+  color: white;
+}
+
+.tab-btn:hover:not(.active) {
+  background-color: #bdc3c7;
+}
+
+.employee-content {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+/* Back to Books Button */
+.back-to-books-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  background-color: #7f8c8d;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.back-to-books-btn:hover {
+  background-color: #95a5a6;
+  transform: translateX(-3px);
+}
+
+.back-to-books-btn svg {
+  stroke-width: 2;
+}
+
+/* Auth Links */
+.auth-links {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.forgot-password-link {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.forgot-password-btn {
+  background: none;
+  border: none;
+  color: #3498db;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.forgot-password-btn:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .book-card {
+    width: calc(20% - 1.2rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .book-card {
+    width: calc(25% - 1.125rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navbar-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .hero-section {
+    padding: 3rem 1rem;
+    min-height: 400px;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  .search-form {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+
+  .book-detail-container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .book-image img {
+    max-width: 100%;
+  }
+
+  .book-actions {
+    flex-direction: column;
+  }
+
+  .cart-page, .checkout-page, .profile-page, .employee-dashboard {
+    padding: 1rem;
+  }
+
+  .cart-wrapper {
+    padding: 1rem;
+  }
+
+  .cart-item-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+  }
+
+  .profile-container, .book-manager {
+    padding: 1.5rem;
+  }
+
+  .table-header, .table-row {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    font-size: 0.9rem;
+  }
+
+  .table-header span:nth-child(n+5),
+  .table-row span:nth-child(n+5) {
+    display: none;
+  }
+
+  .table-header span, .table-row span {
+    padding: 0 0.3rem;
+  }
+
+  .books-controls {
+    flex-direction: column;
+    gap: 1.5rem; /* Tăng khoảng cách khi stack dọc */
+    align-items: stretch;
+  }
+
+  .search-bar {
+    max-width: 100%;
+  }
+
+  .genre-filter {
+    width: 100%;
+  }
+
+  .genre-filter select {
+    width: 100%; /* Dropdown chiếm toàn bộ chiều rộng */
+  }
+}
+
+@media (max-width: 600px) {
+  .book-card {
+    width: calc(33.33% - 1rem);
+  }
+
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-section p {
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  .search-input {
+    padding: 0.8rem 1rem 0.8rem 3rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-logo {
+    font-size: 1.2rem;
+  }
+
+  .navbar-links a {
+    font-size: 0.9rem;
+  }
+
+  .hero-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-section p {
+    font-size: 0.85rem;
+  }
+
+  .search-input {
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+  }
+
+  .search-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cta-button, .add-book-btn, .auth-button, .submit-btn, .edit-btn, .change-password-btn {
+    padding: 0.6rem 1.5rem;
+  }
+
+  .feature-item {
+    padding: 1rem;
+  }
+
+  .cart-title, .profile-title {
+    font-size: 1.5rem;
+  }
+
+  .auth-card, .book-form {
+    padding: 1rem;
+  }
+
+  .table-header, .table-row {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .table-header span:nth-child(n+4),
+  .table-row span:nth-child(n+4) {
+    display: none;
+  }
+
+  .genre-filter label {
+    font-size: 0.9rem;
+  }
+
+  .genre-filter select {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .book-card {
+    width: calc(50% - 0.75rem);
+  }
+}
