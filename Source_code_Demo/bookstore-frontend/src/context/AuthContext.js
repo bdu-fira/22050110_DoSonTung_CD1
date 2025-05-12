@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import * as api from '../services/api';
+import axios from 'axios';
 
 const AuthContext = createContext();
 
@@ -42,29 +42,21 @@ export function AuthProvider({ children }) {
     setIsLoading(false);
   }, []);
 
-  const login = async (credentials) => {
-    try {
-      const response = await api.loginUser(credentials);
-      const userData = response.data;
-      console.log('User data from API:', userData);
-      if (!userData || !userData.role) {
-        throw new Error('User role not provided by API');
-      }
-      userData.role = userData.role.toLowerCase();
-      setUser(userData);
-      setIsAdmin(userData.role === 'admin');
-      setIsEmployee(userData.role === 'employee');
-      sessionStorage.setItem('user', JSON.stringify(userData));
-      console.log('User saved to sessionStorage:', userData);
-      // Load cart items for this user
-      const storedCart = sessionStorage.getItem(`cart_${userData.id}`);
-      const cart = storedCart ? JSON.parse(storedCart) : [];
-      setCartItems(cart);
-      return userData;
-    } catch (error) {
-      console.error('Login error:', error);
-      throw new Error('Login failed');
-    }
+  const login = async ({ identifier, password }) => {
+    const response = await axios.post('http://127.0.0.1:8000/api/login/', {
+      identifier,
+      password,
+    });
+
+    const userData = response.data;
+    userData.role = userData.role?.toLowerCase();
+
+    setUser(userData);
+    setIsAdmin(userData.role === 'admin');
+    setIsEmployee(userData.role === 'employee');
+
+    sessionStorage.setItem('user', JSON.stringify(userData));
+    return userData;
   };
 
   const logout = () => {
@@ -72,6 +64,7 @@ export function AuthProvider({ children }) {
     setIsAdmin(false);
     setIsEmployee(false);
     setCartItems([]);
+
     sessionStorage.removeItem('user');
     // Clear cart for the user
     if (user) {

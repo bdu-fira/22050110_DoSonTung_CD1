@@ -5,11 +5,11 @@ import { useTranslation } from '../context/TranslationContext';
 
 function Register() {
   const [userData, setUserData] = useState({
-    name: '',
+    userName: '',
     email: '',
+    address: '',
     password: '',
-    confirmPassword: '',
-    role: 'user' // Thêm role mặc định là 'user'
+    confirmPassword: ''
   });
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -17,20 +17,25 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
+
     if (userData.password !== userData.confirmPassword) {
-      setError('Passwords do not match');
+      setError(t('passwords_do_not_match') || 'Passwords do not match');
       return;
     }
+
     try {
       await api.registerUser({
-        name: userData.name,
+        userName: userData.userName,
         email: userData.email,
+        address: userData.address,
         password: userData.password,
-        role: userData.role // Gửi role lên backend
       });
+
       navigate('/login');
     } catch (err) {
-      setError('Registration failed');
+      const backendError = err?.response?.data?.error;
+      setError(backendError || t('registration_failed') || 'Registration failed');
     }
   };
 
@@ -45,9 +50,9 @@ function Register() {
             <label>{t('name')}</label>
             <input
               type="text"
-              value={userData.name}
-              onChange={(e) => setUserData({ ...userData, name: e.target.value })}
-              placeholder={t("enter_your_name")}
+              value={userData.userName}
+              onChange={(e) => setUserData({ ...userData, userName: e.target.value })}
+              placeholder={t('enter_your_username')}
               required
             />
           </div>
@@ -57,8 +62,17 @@ function Register() {
               type="email"
               value={userData.email}
               onChange={(e) => setUserData({ ...userData, email: e.target.value })}
-              placeholder={t("enter_your_email")}
+              placeholder={t('enter_your_email')}
               required
+            />
+          </div>
+          <div className="form-group">
+            <label>{t('address')}</label>
+            <input
+              type="text"
+              value={userData.address}
+              onChange={(e) => setUserData({ ...userData, address: e.target.value })}
+              placeholder={t('enter_your_address')}
             />
           </div>
           <div className="form-group">
@@ -67,7 +81,7 @@ function Register() {
               type="password"
               value={userData.password}
               onChange={(e) => setUserData({ ...userData, password: e.target.value })}
-              placeholder={t("create_a_password")}
+              placeholder={t('create_a_password')}
               required
             />
           </div>
@@ -77,7 +91,7 @@ function Register() {
               type="password"
               value={userData.confirmPassword}
               onChange={(e) => setUserData({ ...userData, confirmPassword: e.target.value })}
-              placeholder={t("confirm_your_password")}
+              placeholder={t('confirm_your_password')}
               required
             />
           </div>

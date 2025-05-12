@@ -53,7 +53,7 @@ const translations = {
 
     // Profile
     my_profile: 'Hồ sơ người dùng',
-    name: 'Tên',
+    name: 'Tên người dùng',
     email: 'Email',
     role: 'Vai trò',
     edit_profile: 'Cập nhật hồ sơ',
@@ -69,13 +69,17 @@ const translations = {
     forgot_password: 'Quên mật khẩu?',
     dont_have_account: 'Chưa có tài khoản?',
     invalid_credentials: 'Email hoặc mật khẩu không đúng',
+    username_or_email: 'Tên đăng nhập (Email)',
 
     // Register
+    passwords_do_not_match: 'Mật khẩu không trùng khớp',
+    registration_failed: 'Đăng ký không thành công',
     password: 'Mật khẩu',
     create_account: 'Tạo tài khoản của bạn',
     join_our_bookstore_community: 'Tham gia cộng đồng cửa hàng sách của chúng tôi',
-    enter_your_name: 'Nhập tên của bạn',
+    enter_your_username: 'Nhập tên đăng nhập',
     enter_your_email: 'Nhập email của bạn',
+    enter_your_address: 'Nhập địa chỉ của bạn',
     create_a_password: 'Tạo mật khẩu',
     confirm_password: 'Xác nhận mật khẩu',
     confirm_your_password: 'Xác nhận mật khẩu của bạn',
@@ -219,7 +223,7 @@ const translations = {
 
     // Profile
     my_profile: 'User Profile',
-    name: 'Name',
+    name: 'User Name',
     email: 'Email',
     role: 'Role',
     edit_profile: 'Edit Profile',
@@ -235,13 +239,17 @@ const translations = {
     forgot_password: 'Forgot Password?',
     dont_have_account: 'Don`t have an account?',
     invalid_credentials: 'Invalid email or password',
+    username_or_email: 'Username (Email)',
 
     // Register
+    passwords_do_not_match: 'Passwords do not match',
+    registration_failed: 'Registration failed',
     password: 'Password',
     create_account: 'Create your account',
     join_our_bookstore_community: 'Join our bookstore community',
-    enter_your_name: 'Enter your name',
+    enter_your_username: 'Enter your user name',
     enter_your_email: 'Enter your email',
+    enter_your_address: 'Enter your address',
     create_a_password: 'Create a password',
     confirm_password: 'Confirm Password',
     confirm_your_password: 'Confirm your password',

@@ -1,7 +1,14 @@
 from rest_framework import serializers
 from .models import account, book, bookDetail, category, order, payment, statusOrder, user
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = user
+        fields = '__all__'
+
 class AccountSerializer(serializers.ModelSerializer):
+    email = serializers.CharField(source='user.email', read_only=True)
+
     class Meta:
         model = account
         fields = '__all__'
@@ -47,7 +54,3 @@ class StatusOrderSerializer(serializers.ModelSerializer):
         model = statusOrder
         fields = '__all__'
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = user
-        fields = '__all__'

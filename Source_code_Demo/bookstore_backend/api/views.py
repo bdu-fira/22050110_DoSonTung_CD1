@@ -8,6 +8,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from rest_framework.decorators import action
 from django.contrib.auth.hashers import make_password
+from django.db import transaction
 
 
 from .models import account, book, bookDetail, category, order, payment, statusOrder, user
@@ -128,26 +129,87 @@ class LoginView(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request):
-        email = request.data.get('email')
+        identifier = request.data.get('identifier')  # có thể là userName hoặc email
         password = request.data.get('password')
 
-        if not email or not password:
-            return Response({'error': 'Email and password are required.'}, status=status.HTTP_400_BAD_REQUEST)
+        if not identifier or not password:
+            return Response({'error': 'Username or email and password are required.'}, status=status.HTTP_400_BAD_REQUEST)
 
         try:
-            user_account = account.objects.get(userName=email)
+            # Thử tìm theo userName trước
+            user_account = account.objects.get(userName=identifier)
         except account.DoesNotExist:
-            return Response({'error': 'User not found.'}, status=status.HTTP_404_NOT_FOUND)
+            try:
+                # Nếu không có userName, thử tìm user theo email
+                user_obj = user.objects.get(email=identifier)
+                user_account = user_obj.accountID
+            except user.DoesNotExist:
+                return Response({'error': 'User not found.'}, status=status.HTTP_404_NOT_FOUND)
 
-        if not user_account.password == password:
+        # So sánh mật khẩu (plain text – KHÔNG AN TOÀN, chỉ dùng cho mục đích demo)
+        if user_account.password != password:
             return Response({'error': 'Invalid credentials.'}, status=status.HTTP_401_UNAUTHORIZED)
 
-        return Response({
-            'id': user_account.id,
-            'email': user_account.userName,
-            'role': user_account.role,
-        }, status=status.HTTP_200_OK)
+        # Tìm user info từ bảng `user` nếu có
+        try:
+            user_info = user.objects.get(accountID=user_account)
+            user_email = user_info.email
+        except user.DoesNotExist:
+            user_email = None
 
+        return Response({
+            'id': user_account.accountID,
+            'userName': user_account.userName,
+            'role': user_account.role,
+            'email': user_email
+        }, status=status.HTTP_200_OK)
+    
+class RegisterView(APIView):
+    def post(self, request):
+        userName = request.data.get('userName')
+        password = request.data.get('password')
+        email = request.data.get('email')
+        address = request.data.get('address', '')
+
+        if not userName or not password or not email:
+            return Response({'error': 'Vui lòng nhập đầy đủ thông tin!'}, status=status.HTTP_400_BAD_REQUEST)
+
+        if account.objects.filter(userName=userName).exists():
+            return Response({'error': 'Tên người dùng đã tồn tại'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        if user.objects.filter(email=email).exists():
+            return Response({'error': 'Email đã tồn tại.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            with transaction.atomic():
+                # Tạo tài khoản mới
+                new_account = account.objects.create(
+                    userName=userName,
+                    password=password,
+                    role='user'
+                )
+
+                # Tạo thông tin người dùng
+                new_user = user.objects.create(
+                    userName=userName,
+                    email=email,
+                    address=address,
+                    accountID=new_account
+                )
+
+                return Response({
+                    'message': 'Đăng ký thành công.',
+                    'user': {
+                        'id': new_account.accountID,
+                        'userName': new_account.userName,
+                        'role': new_account.role,
+                        'email': new_user.email,
+                        'address': new_user.address
+                    }
+                }, status=status.HTTP_201_CREATED)
+
+        except Exception as e:
+            return Response({'error': f'Registration failed: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class AccountViewSet(viewsets.ModelViewSet):
     queryset = account.objects.all()

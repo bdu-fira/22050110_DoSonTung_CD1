@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { useTranslation } from '../context/TranslationContext';
 
 function Login() {
-  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const [credentials, setCredentials] = useState({ identifier: '', password: '' });
   const [error, setError] = useState('');
   const { login } = useAuth();
   const { t } = useTranslation();
@@ -14,9 +14,12 @@ function Login() {
     e.preventDefault();
     setError('');
     try {
+      // Gửi { identifier, password } đến backend
       const userData = await login(credentials);
+
       console.log('Login successful, userData:', userData);
       const role = userData.role ? userData.role.toLowerCase() : '';
+
       if (role === 'admin') {
         navigate('/admin');
       } else if (role === 'employee') {
@@ -25,8 +28,8 @@ function Login() {
         navigate('/');
       }
     } catch (err) {
-      console.error('Login failed:', err.message);
-      setError(t('invalid_credentials') || 'Invalid credentials');
+      console.error('Login failed:', err);
+      setError(err?.response?.data?.error || t('invalid_credentials') || 'Invalid credentials');
     }
   };
 
@@ -38,11 +41,11 @@ function Login() {
         {error && <div className="error-message">{error}</div>}
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>{t('email')}</label>
+            <label>{t('username_or_email')}</label>
             <input
-              type="email"
-              value={credentials.email}
-              onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
+              type="text"
+              value={credentials.identifier}
+              onChange={(e) => setCredentials({ ...credentials, identifier: e.target.value })}
               required
             />
           </div>

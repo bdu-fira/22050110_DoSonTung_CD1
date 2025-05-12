@@ -15,15 +15,8 @@ export const deleteBook = (id) => axios.delete(`${API_URL}books/${id}`);
 // export const deleteCategory = (id) => axios.delete(`${API_URL}category/${id}/`);
 
 export const loginUser = (credentials) => axios.get(`${API_URL}login`);
-  // axios.get(`${API_URL}/users?email=${credentials.email}&password=${credentials.password}`).then(res => {
-  //   if (res.data.length > 0) {
-  //     return { data: res.data[0] }; // Trả về user đầu tiên khớp
-  //   } else {
-  //     throw new Error('Invalid credentials');
-  //   }
-  // });
 
-export const registerUser = (userData) => axios.post(`${API_URL}users`, userData);
+export const registerUser = (userData) => axios.post(`${API_URL}register`, userData);
 export const updateUser = (id, userData) => axios.put(`${API_URL}users/${id}`, userData);
 export const changePassword = (id, passwordData) => axios.put(`${API_URL}users/${id}`, passwordData);
 export const forgotPassword = (emailData) => axios.post(`${API_URL}users`, emailData); // Mock

@@ -121,7 +121,7 @@ const filteredBooks = translatedBooks
           <div key={book.id} className="book-card">
             <Link to={`book/${book.id}`} className="book-link">
               <img src={book.coverImage || 'https://via.placeholder.com/150x200'} alt={book.Name} />
-              <h3>{book.Name}</h3>
+              <h3>{book.bookName}</h3>
               <p>{book.author}</p>
               <p>{book.price.toLocaleString('vi-VN')} VND</p>
               <p>{t('quantity')}: {book.quantity || 0}</p>

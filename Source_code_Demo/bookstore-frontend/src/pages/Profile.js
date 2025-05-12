@@ -64,7 +64,7 @@ function Profile() {
         {!editMode && !passwordMode && (
           <div className="profile-info-card">
             <div className="profile-details">
-              <p><strong>{t('name')}: </strong> {user.name}</p>
+              <p><strong>{t('name')}: </strong> {user.userName}</p>
               <p><strong>{t('email')}:</strong> {user.email}</p>
               <p><strong>{t('role')}:</strong> {user.role}</p>
             </div>

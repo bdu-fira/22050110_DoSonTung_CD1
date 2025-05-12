@@ -4,7 +4,7 @@ from rest_framework.routers import DefaultRouter
 from .views import (
     AccountViewSet, BookViewSet, BookDetailViewSet, CategoryViewSet,
     OrderViewSet, PaymentViewSet, StatusOrderViewSet, UserViewSet,
-    PasswordResetView, EmployeeViewSet, LoginView
+    PasswordResetView, EmployeeViewSet, LoginView, RegisterView
 )
 
 router = DefaultRouter()
@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('password-reset/', PasswordResetView.as_view(), name='password reset'),
     path('login/', LoginView.as_view(), name='login'),
+    path('register/', RegisterView.as_view(), name='register'),
 ]
