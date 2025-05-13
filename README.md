@@ -5,4 +5,4 @@
 
   + bookstore_backend: sử dụng framework django. Xử lý các chức năng, yêu cầu từ frontend và cập nhật vào database. 
 
-  + bookstore-frontend: (react) gửi các yêu cầu tới cho backend và trực quan hóa dưới dạng trang web cho người dùng
+  + bookstore-frontend: (react) gửi các yêu cầu tới cho backend và trực quan hóa dưới dạng trang web cho người dùng.
