@@ -35,7 +35,7 @@ function Navbar({ setCartItems }) {
             <>
               <Link to="/profile">{user.userName}</Link>
               {isAdmin && <Link to="/admin">{t('admin')}</Link>}
-              {isEmployee && <Link to="/employee">{user.userName} - {t('employee')}</Link>}
+              {isEmployee && <Link to="/employee">{t('employee')}</Link>}
               <button onClick={handleLogout} className="logout-btn">{t('logout')}</button>
             </>
           ) : (

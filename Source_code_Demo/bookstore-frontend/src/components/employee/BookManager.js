@@ -112,24 +112,22 @@ function BookManager() {
 
       <div className="books-table">
         <div className="table-header">
+          <span></span>
           <span>{t('title')}</span>
           <span>{t('author')}</span>
           <span>{t('price')}</span>
           <span>{t('quantity')}</span>
           <span>{t('genre')}</span>
-          <span>{t('publisher')}</span>
-          <span>{t('language')}</span>
           <span>{t('actions')}</span>
         </div>
         {books.map((book) => (
           <div key={book.id} className="table-row">
-            <span>{book.title}</span>
+            <img src={book.coverImage} alt={book.Name} width={60} height={80}/>
+            <span>{book.bookName}</span>
             <span>{book.author}</span>
             <span>{book.price.toLocaleString('vi-VN')} VND</span>
             <span>{book.quantity || 0}</span>
-            <span>{book.genre || 'N/A'}</span>
-            <span>{book.publisher || 'N/A'}</span>
-            <span>{book.language || 'N/A'}</span>
+            <span>{book.categoryName  || 'N/A'}</span>
             <div className="table-actions">
               <button 
                 className="edit-book-btn"

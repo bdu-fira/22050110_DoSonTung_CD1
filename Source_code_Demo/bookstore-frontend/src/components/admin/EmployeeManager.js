@@ -8,7 +8,7 @@ function EmployeeManager() {
   const [showForm, setShowForm] = useState(false);
   const [editingEmployee, setEditingEmployee] = useState(null);
   const [formData, setFormData] = useState({
-    name: '',
+    userName: '',
     email: '',
     password: '',
     role: 'employee'
@@ -45,7 +45,7 @@ function EmployeeManager() {
       await api.registerUser(employeeData);
 
       setShowForm(false);
-      setFormData({ name: '', email: '', password: '', role: 'employee' });
+      setFormData({ userName: '', email: '', password: '', role: 'employee' });
       fetchEmployees();
     } catch (error) {
       console.error('Error adding employee:', error);
@@ -66,12 +66,12 @@ function EmployeeManager() {
       }
 
       // Cập nhật employees
-      await api.updateEmployee(editingEmployee.id, { ...formData, role: 'employee' });
+      await api.updateEmployee(editingEmployee.userID, { ...formData, role: 'employee' });
       // Cập nhật users
-      await api.updateUser(editingEmployee.id, { ...formData, role: 'employee' });
+      await api.updateUser(editingEmployee.userID, { ...formData, role: 'employee' });
 
       setEditingEmployee(null);
-      setFormData({ name: '', email: '', password: '', role: 'employee' });
+      setFormData({ userName: '', email: '', password: '', role: 'employee' });
       fetchEmployees();
     } catch (error) {
       console.error('Error updating employee:', error);
@@ -125,8 +125,8 @@ function EmployeeManager() {
             <label>{t('full_name')}</label>
             <input
               type="text"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              value={formData.userName}
+              onChange={(e) => setFormData({ ...formData, userName: e.target.value })}
               required
             />
           </div>

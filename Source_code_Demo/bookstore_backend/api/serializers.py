@@ -5,6 +5,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = user
         fields = '__all__'
+        read_only_fields = ('userID', 'role')
 
 class AccountSerializer(serializers.ModelSerializer):
     email = serializers.CharField(source='user.email', read_only=True)

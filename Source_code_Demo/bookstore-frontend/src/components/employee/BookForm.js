@@ -6,15 +6,13 @@ function BookForm({ book, onSubmit, onCancel }) {
   const { t } = useTranslation();
   const [formData, setFormData] = useState(
     book || { 
-      title: '', 
+      bookName: '', 
       author: '', 
       price: '', 
       description: '', 
       coverImage: '', 
       quantity: 0,
-      genre: '',
-      publisher: '',
-      language: ''
+      categoryName: '',
     }
   );
   const [imagePreview, setImagePreview] = useState(book?.coverImage || '');
@@ -48,8 +46,8 @@ function BookForm({ book, onSubmit, onCancel }) {
           <label>{t('title')}:</label>
           <input
             type="text"
-            value={formData.title}
-            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+            value={formData.bookName}
+            onChange={(e) => setFormData({ ...formData, bookName: e.target.value })}
             required
           />
         </div>
@@ -85,24 +83,8 @@ function BookForm({ book, onSubmit, onCancel }) {
           <label>{t('genre')}:</label>
           <input
             type="text"
-            value={formData.genre}
-            onChange={(e) => setFormData({ ...formData, genre: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label>{t('publisher')}:</label>
-          <input
-            type="text"
-            value={formData.publisher}
-            onChange={(e) => setFormData({ ...formData, publisher: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label>{t('language')}:</label>
-          <input
-            type="text"
-            value={formData.language}
-            onChange={(e) => setFormData({ ...formData, language: e.target.value })}
+            value={formData.categoryName}
+            onChange={(e) => setFormData({ ...formData, categoryName: e.target.value })}
           />
         </div>
         <div className="form-group">

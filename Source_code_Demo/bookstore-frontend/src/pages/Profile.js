@@ -8,14 +8,18 @@ function Profile() {
   const { user, isLoading } = useAuth();
   const [editMode, setEditMode] = useState(false);
   const [passwordMode, setPasswordMode] = useState(false);
-  const [userData, setUserData] = useState({ name: user?.name || '', email: user?.email || '' });
+  const [userData, setUserData] = useState({ userName: user?.userName || '', email: user?.email || '' });
   const [passwordData, setPasswordData] = useState({ current: '', new: '', confirm: '' });
   const [error, setError] = useState('');
   const { t } = useTranslation();
 
   useEffect(() => {
     if (user) {
-      setUserData({ name: user.name || '', email: user.email || '' });
+      setUserData({
+        userName: user.userName || '',
+        email: user.email || '',
+        address: user.address || '',
+      });
     }
   }, [user]);
 
@@ -30,7 +34,12 @@ function Profile() {
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
     try {
-      await api.updateUser(user.id, userData);
+      console.log(userData)
+      await api.updateUser(user.id, {
+        userName: userData.userName,
+        email: userData.email,
+        address: userData.address || ''
+      });
       setEditMode(false);
     } catch (err) {
       setError('Failed to update profile');
@@ -66,7 +75,7 @@ function Profile() {
             <div className="profile-details">
               <p><strong>{t('name')}: </strong> {user.userName}</p>
               <p><strong>{t('email')}:</strong> {user.email}</p>
-              <p><strong>{t('role')}:</strong> {user.role}</p>
+              <p><strong>{t('address')}:</strong> {user.address}</p>
             </div>
             <div className="profile-actions">
               <button className="edit-btn" onClick={() => setEditMode(true)}>
@@ -87,8 +96,8 @@ function Profile() {
               <label>{t('name')}</label>
               <input
                 type="text"
-                value={userData.name}
-                onChange={(e) => setUserData({ ...userData, name: e.target.value })}
+                value={userData.userName}
+                onChange={(e) => setUserData({ ...userData, userName: e.target.value })}
               />
             </div>
             <div className="form-group">
@@ -97,6 +106,14 @@ function Profile() {
                 type="email"
                 value={userData.email}
                 onChange={(e) => setUserData({ ...userData, email: e.target.value })}
+              />
+            </div>
+            <div className="form-group">
+              <label>{t('address')}</label>
+              <input
+                type="text"
+                value={userData.address}
+                onChange={(e) => setUserData({ ...userData, address: e.target.value })}
               />
             </div>
             <div className="form-actions">

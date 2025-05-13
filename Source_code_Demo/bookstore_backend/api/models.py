@@ -25,7 +25,7 @@ class user(models.Model):
     userName = models.CharField(max_length=20)
     email = models.EmailField(max_length=50, null=True, blank=True)
     address = models.CharField(max_length=100, null=True, blank=True)
-    accountID = models.ForeignKey(account, on_delete=models.CASCADE)
+    accountID = models.ForeignKey(account, on_delete=models.CASCADE, unique=True)
 
     def __str__(self):
         return self.userName
